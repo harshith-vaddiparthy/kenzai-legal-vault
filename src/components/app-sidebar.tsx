@@ -1,26 +1,19 @@
 "use client"
 
 import {
-  Archive,
-  ChevronDown,
   FileText,
   Plus,
   Scale,
   Search,
-  Settings,
-  ShieldCheck,
 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar"
-
-const matters = ["Acme renewal", "Vendor agreements", "Property leases"]
 
 type AppSidebarProps = React.ComponentProps<typeof Sidebar> & {
   activeDocument: string
@@ -58,21 +51,6 @@ export function AppSidebar({
         </Button>
 
         <section className="space-y-2 group-data-[collapsible=icon]:hidden">
-          <p className="px-2 text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">Matters</p>
-          <div className="space-y-1">
-            {matters.map((matter) => (
-              <button
-                key={matter}
-                className="flex w-full items-center justify-between rounded-md px-2 py-1.5 text-left text-sm text-muted-foreground transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-              >
-                <span className="truncate">{matter}</span>
-                <ChevronDown className="size-3.5 -rotate-90 opacity-50" />
-              </button>
-            ))}
-          </div>
-        </section>
-
-        <section className="space-y-2 group-data-[collapsible=icon]:hidden">
           <div className="flex items-center justify-between px-2">
             <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">Recent</p>
             <Search className="size-3.5 text-muted-foreground" />
@@ -98,32 +76,7 @@ export function AppSidebar({
           </div>
         </section>
 
-        <section className="space-y-2 group-data-[collapsible=icon]:hidden">
-          <p className="px-2 text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">Filters</p>
-          <button className="flex w-full items-center justify-between rounded-md border border-sidebar-border px-2.5 py-2 text-sm text-muted-foreground">
-            Contracts <ChevronDown className="size-3.5" />
-          </button>
-          <button className="flex w-full items-center justify-between rounded-md border border-sidebar-border px-2.5 py-2 text-sm text-muted-foreground">
-            All statuses <ChevronDown className="size-3.5" />
-          </button>
-        </section>
       </SidebarContent>
-
-      <SidebarFooter className="border-t border-sidebar-border p-3">
-        <div className="space-y-1 group-data-[collapsible=icon]:hidden">
-          <div className="flex items-center gap-2 rounded-md px-2 py-1.5 text-sm text-muted-foreground">
-            <ShieldCheck className="size-4 text-emerald-700" />
-            Local-first workspace
-          </div>
-          <div className="flex items-center gap-2 rounded-md px-2 py-1.5 text-sm text-muted-foreground">
-            <Settings className="size-4" />
-            Workspace settings
-          </div>
-        </div>
-        <div className="hidden group-data-[collapsible=icon]:grid group-data-[collapsible=icon]:place-items-center">
-          <Archive className="size-4 text-muted-foreground" />
-        </div>
-      </SidebarFooter>
       <SidebarRail />
     </Sidebar>
   )
